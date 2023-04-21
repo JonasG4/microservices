@@ -20,12 +20,21 @@ class LanguagesModel {
     return language[0];
   }
 
-  async getCountriesByLanguageCode(languageCode) {
+  async getLanguageByName(languageName) {
+    const languageResponse = await this.data;
+
+    const language = languageResponse.filter((language) => {
+      return language.languages.includes(languageName);
+    });
+
+    return language[0];
+  }
+
+  async getCountriesByLanguageCode(code) {
     const countriesResponse = await axios.get(
-      `http://countries:5000/api/v2/countries/languages/${languageCode}`
+      `http://countries:5000/api/v2/countries/language/${code}`
     );
     const countries = await countriesResponse.data.data;
-
     return countries;
   }
 

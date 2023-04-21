@@ -7,7 +7,7 @@ class CountriesModel {
   }
 
   getAllCountries() {
-    const countries = Object.entries(countries).map((country) => {
+    const countries = Object.entries(this.data).map((country) => {
       return { code: country[0], ...country[1] };
     });
 

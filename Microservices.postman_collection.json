@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "65cece4d-b95d-473e-8fc0-0ec7fb893241",
+		"name": "Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12815691"
+	},
+	"item": [
+		{
+			"name": "Books Service",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/books?from=1904&to=1904",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"books"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "1904"
+								},
+								{
+									"key": "to",
+									"value": "1904"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byAuthorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/books/author/12",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"books",
+								"author",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/books/country/El Salvador",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"books",
+								"country",
+								"El Salvador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byAuthorName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/books/author-name/Homer\\",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"books",
+								"author-name",
+								"Homer",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors Service",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/authors/author/Homer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"authors",
+								"author",
+								"Homer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/authors/21",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"authors",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/authors/author/Fyodor Dostoevsky",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"authors",
+								"author",
+								"Fyodor Dostoevsky"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/authors/country/United State",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"authors",
+								"country",
+								"United State"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Languages Services",
+			"item": [
+				{
+					"name": "GET all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v2/languages/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"languages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/languages/es",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"languages",
+								"es"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get byName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/languages/language/English",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"languages",
+								"language",
+								"English"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Countries Service",
+			"item": [
+				{
+					"name": "GET all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v2/countries",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byCapital",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/countries/capital/Madrid",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"countries",
+								"capital",
+								"Madrid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byLanguage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/countries/language/es",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"countries",
+								"language",
+								"es"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

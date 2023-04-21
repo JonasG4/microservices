@@ -12,8 +12,9 @@ class AuthorModel {
 
   getAuthorById(authorId) {
     const author = this.data.filter((author) => {
-      return author.id === authorId;
+      return author.id == authorId;
     });
+
     return author;
   }
 

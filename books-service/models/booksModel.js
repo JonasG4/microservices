@@ -1,5 +1,5 @@
 const { dataLibrary } = require("../data/data-library");
-const axios = require('axios')
+const axios = require("axios");
 
 class BookModel {
   constructor() {
@@ -19,17 +19,25 @@ class BookModel {
   }
   getBooksByAuthorId(authorId) {
     const books = this.data.filter((book) => {
-      return book.authorid === authorId;
+      return book.authorid == authorId;
     });
     return books;
   }
+
+  async getAuthorByName(authorName) {
+    const authorsResponse = await axios.get(
+      `http://authors:3000/api/v2/authors/author/${authorName}`
+    );
+    const author = await authorsResponse.data.data;
+    return author;
+  }
+
   getBooksByCountry(countryName) {
     const books = this.data.filter((book) => {
       return book.distributedCountries.includes(countryName);
     });
     return books;
   }
-
 }
 
 module.exports = BookModel;

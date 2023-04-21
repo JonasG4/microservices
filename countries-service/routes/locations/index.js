@@ -14,12 +14,11 @@ router.get("/", (req, res) => {
     length: countries.length,
     data: countries,
   };
-  logger("Get countries data");
+  logger("Get all countries data");
   return res.json(response);
 });
 
 router.get("/capital/:name", async (req, res) => {
-  // Convertir el objeto en array y filtrar por capital
   const country = model.getCountryByCapital(req.params.name);
 
   // Si capital no existe, arroja un not found
@@ -30,20 +29,17 @@ router.get("/capital/:name", async (req, res) => {
       status: "404 not found",
       msg: `La capital ${req.params.name} no existe`,
     };
+    logger(`Capital ${req.params.name} not exist`);
     return res.status(404).send(response);
   }
 
-  //Se obtienen los autores por el pais
   const authors = await model.getAuthorsByCountry(country.name);
-
   //Un array con solo os nombres de los autores
   const authorsNames = authors.map((author) => {
     return author.author;
   });
 
-  //Se obtienen los libros por el pais de distribucion
   const books = await model.getBooksByCountry(country.name);
-
   //se obtienen un array de titulos de libros
   const booksTitles = books.map((book) => {
     return book.title;
@@ -53,18 +49,18 @@ router.get("/capital/:name", async (req, res) => {
     service: "countries",
     architecture: "microservices",
     data: {
-      country: countryName,
+      country: country.name,
       authors: authorsNames,
       books: booksTitles,
     },
   };
 
+  logger("Get country data by capital");
   return res.send(response);
 });
 
-router.get("/languages/:code", (req, res) => {
+router.get("/language/:code", (req, res) => {
   const countries = model.getCountriesByLanguageCode(req.params.code);
-
   const response = {
     service: "countries",
     architecture: "microservices",
@@ -72,6 +68,7 @@ router.get("/languages/:code", (req, res) => {
     data: countries,
   };
 
+  logger("Get country data by capital");
   return res.send(response);
 });
 

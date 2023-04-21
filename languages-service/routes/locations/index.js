@@ -15,8 +15,8 @@ router.get("/", async (req, res) => {
     data: languages,
   };
 
+  logger("Get languages data");
   res.send(response);
-  logger("Entrando a get");
 });
 
 router.get("/:code", async (req, res) => {
@@ -52,6 +52,56 @@ router.get("/:code", async (req, res) => {
     },
   };
 
+  logger("Get languages by code");
+  res.send(response);
+});
+
+router.get("/language/:name", async (req, res) => {
+  const language = await model.getLanguageByName(req.params.name);
+
+  // Si capital no existe, arroja un not found
+  if (!language) {
+    const response = {
+      service: "languages",
+      architecture: "microservices",
+      status: "404 not found",
+      msg: `El lenguaje ${req.params.name} no existe`,
+    };
+    logger(`Language ${req.params.name} not exist`);
+    return res.status(404).send(response);
+  }
+
+  const countries = await model.getCountriesByLanguageCode(language.code);
+  const countriesName = countries.map((country) => country.name);
+
+  const authors = [];
+  const books = [];
+
+  for (let i = 0; i < countries.length; i++) {
+    const authorResponse = await model.getAuthorsByCountry(countries[i].name);
+    const booksResponse = await model.getBooksByCountry(countries[i].name);
+
+    for (let j = 0; j < authorResponse.length; j++) {
+      authors.push(authorResponse[j]);
+    }
+
+    for (let k = 0; k < booksResponse.length; k++) {
+      books.push(booksResponse[k].title);
+    }
+  }
+
+  const response = {
+    service: "languages",
+    architecture: "microservices",
+    data: {
+      languageCode: language.code,
+      countries: countriesName,
+      authors: authors,
+      books: books,
+    },
+  };
+
+  logger("Get languages by name");
   res.send(response);
 });
 

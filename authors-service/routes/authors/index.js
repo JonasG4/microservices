@@ -8,27 +8,20 @@ const model = new AuthorModel();
 // Creamos una función logger que muestra un mensaje en consola
 const logger = (message) => console.log(`Authors Service: ${message}`);
 
-// Creamos la ruta para obtener todos los autores
 router.get("/", (req, res) => {
   const authors = model.getAllAuthors();
 
-  // Creamos un objeto de respuesta con los datos de los autores
   const response = {
     service: "authors",
     architecture: "microservices",
     data: authors,
   };
-
-  // Enviamos la respuesta
+  logger("Get all authors data");
   return res.send(response);
 });
 
-// Creamos la ruta para obtener un autor por su id
 router.get("/:id", async (req, res) => {
-  // Filtramos los autores cuyo id coincide con el que se envía en la petición
   const author = model.getAuthorById(req.params.id);
-
-  // Hacemos una petiticon a la API books para obtener los libros por autor
   const books = await model.getBooksByAuthorId(req.params.id);
 
   const response = {
@@ -37,14 +30,12 @@ router.get("/:id", async (req, res) => {
     data: { ...author, books },
   };
 
+  logger("Get author data by Id ");
   return res.send(response);
 });
 
-// Creamos la ruta para obtener autores por su nombre
 router.get("/author/:name", async (req, res) => {
-  // Filtramos los autores cuyo nombre coincide con el que se envía en la petición
   const author = model.getAuthorByName(req.params.name);
-
   const books = await model.getBooksByAuthorId(author.id);
 
   const response = {
@@ -53,6 +44,7 @@ router.get("/author/:name", async (req, res) => {
     data: { ...author, books },
   };
 
+  logger("Get author data by name");
   return res.send(response);
 });
 
@@ -65,6 +57,8 @@ router.get("/country/:name", (req, res) => {
     length: authors.length,
     data: authors,
   };
+
+  logger("Get author data by country");
   return res.send(response);
 });
 
