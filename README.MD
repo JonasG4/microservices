@@ -13,7 +13,7 @@ http://localhost:8080
 ```
 ## API
 
-#### Listar todos los libros escritos por un autor por nombre o id
+### Listar todos los libros escritos por un autor por nombre o id
 
 __Peticion:__
 
@@ -108,10 +108,10 @@ __Peticion:__
   ```
   </details>
  
-  ___
-  #### Listar todos los libros según rango de años
+  ---
+  ### Listar todos los libros según rango de años
   
-  - Listar del año 1986 a 2000
+  - __Listar del año 1986 a 2000__
   
   __Peticion:__
   
@@ -220,9 +220,10 @@ __Peticion:__
   ```
   </details>
   
-  - Listar libros con años superiores a 1994
+  ---
+  - __Listar libros con años superiores a 1994__
   
-   __Peticion:__
+   Peticion:
    
   ```
   /api/v2/books?from=1994
@@ -295,10 +296,11 @@ __Peticion:__
 }
   ```
   </details>
+    
+  ---
+  - __Listar libros con años inferiores a 998__
   
-  - Listar libros con años inferiores a 998
-  
-   __Peticion:__
+   Peticion:
   ```
   /api/v2/books?to=998
   ```
@@ -417,9 +419,10 @@ __Peticion:__
   ```
   </details>
   
-  - Listar libros con el año igual a 1904
+  ---
+  - __Listar libros con el año igual a 1904__
   
-   __Peticion:__
+   Peticion:
   ```
   /api/v2/books?from=1904&to=1904
   ```
@@ -480,9 +483,9 @@ __Peticion:__
 }
   ```
   </details>
-  
+ 
   ___
-  #### Segun el nombre de una capital listar:
+  ### Segun el nombre de una capital listar:
   - Listar el nombre del país al que pertenece.
   - Los nombres de los autores nacidos en ese país.
   - Listar los libros distribuidos en ese país.
@@ -521,7 +524,7 @@ __Peticion:__
  </details>
 
 ___
-#### Según el código de lenguaje o el nombre listar:
+### Según el código de lenguaje o el nombre listar:
   - Información del autor que haya nacido en el país donde se habla ese lenguaje
   - Listar países, donde se hable o se use el determinado lenguaje
   - Listar los libros los que se hayan distribuido en determinado país
