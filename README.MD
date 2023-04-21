@@ -485,7 +485,7 @@ __Peticion:__
   </details>
  
   ___
-  ### Segun el nombre de una capital listar:
+  ### Segun el nombre de una capital, listar:
   - Listar el nombre del país al que pertenece.
   - Los nombres de los autores nacidos en ese país.
   - Listar los libros distribuidos en ese país.
@@ -524,7 +524,7 @@ __Peticion:__
  </details>
 
 ___
-### Según el código de lenguaje o el nombre listar:
+### Según el código de lenguaje o el nombre, listar:
   - Información del autor que haya nacido en el país donde se habla ese lenguaje
   - Listar países, donde se hable o se use el determinado lenguaje
   - Listar los libros los que se hayan distribuido en determinado país
